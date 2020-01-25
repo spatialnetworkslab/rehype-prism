@@ -7,6 +7,16 @@ const refractor = require('refractor');
 module.exports = options => {
   options = options || {};
 
+  if ('registerSyntax' in options) {
+    if (Array.isArray(options.registerSyntax)) {
+      for (const syntax of options.registerSyntax) {
+        refractor.register(syntax);
+      }
+    } else {
+      throw 'options.registerSyntax should be an array of additional syntaxes';
+    }
+  }
+
   return tree => {
     visit(tree, 'element', visitor);
   };
@@ -24,8 +34,9 @@ module.exports = options => {
 
     let result;
     try {
-      parent.properties.className = (parent.properties.className || [])
-        .concat('language-' + lang);
+      parent.properties.className = (parent.properties.className || []).concat(
+        'language-' + lang
+      );
       result = refractor.highlight(nodeToString(node), lang);
     } catch (err) {
       if (options.ignoreMissing && /Unknown language/.test(err.message)) {

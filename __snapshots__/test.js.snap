@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`additional language syntax gets registered and applied correctly 1`] = `
+"<pre class=\\"language-svelte\\"><code class=\\"language-svelte\\">
+  <span class=\\"token each\\"><span class=\\"token punctuation\\">{</span><span class=\\"token keyword\\">#each</span> <span class=\\"token language-javascript\\">items </span><span class=\\"token keyword\\">as</span> <span class=\\"token language-javascript\\">item<span class=\\"token punctuation\\">,</span> i<span class=\\"token punctuation\\">}</span></span></span>
+    <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span>item<span class=\\"token punctuation\\">.</span><span class=\\"token property-access\\">name</span><span class=\\"token punctuation\\">}</span></span>
+  <span class=\\"token language-javascript\\"><span class=\\"token punctuation\\">{</span><span class=\\"token operator\\">/</span>each<span class=\\"token punctuation\\">}</span></span>
+</code></pre>"
+`;
+
 exports[`copies the language- class to pre tag 1`] = `"<pre class=\\"language-css\\"><code class=\\"language-css\\"></code></pre>"`;
 
 exports[`does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;
